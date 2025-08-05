@@ -28,8 +28,7 @@ It uses song metadata such as danceability, energy, valence, tempo, and more to 
 2. Create and activate a virtual environment:
 
    ```bash
-   python3 -m venv venv
-  source venv/bin/activate   # On Windows use `venv\Scripts\activate
+   python3 -m venv venv source venv/bin/activate   # On Windows use `venv\Scripts\activate
   ```
  
 3. Install dependencies:
