@@ -30,7 +30,8 @@ It uses song metadata such as danceability, energy, valence, tempo, and more to 
    ```bash
    python3 -m venv venv
   source venv/bin/activate   # On Windows use `venv\Scripts\activate
-  ``` 
+  ```
+ 
 3. Install dependencies:
 
    ```bash
