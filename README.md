@@ -34,3 +34,5 @@ It uses song metadata such as danceability, energy, valence, tempo, and more to 
 
   ```bash
   pip install pandas
+
+Just make sure to replace `your-username` with your GitHub username.
