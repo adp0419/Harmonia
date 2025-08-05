@@ -23,16 +23,17 @@ It uses song metadata such as danceability, energy, valence, tempo, and more to 
    ```bash
    git clone https://github.com/your-username/Spotify-API-Project.git
    cd Spotify-API-Project
-
+   
 2. Create and activate a virtual environment:
 
-  ```bash
-  python3 -m venv venv
-  source venv/bin/activate   # On Windows use `venv\Scripts\activate`
-
+```bash
+   python3 -m venv venv
+  source venv/bin/activate   # On Windows use `venv\Scripts\activate
+   
 3. Install dependencies:
 
-  ```bash
-  pip install pandas
+```bash
+   pip install pandas
 
 Just make sure to replace `your-username` with your GitHub username.
+
