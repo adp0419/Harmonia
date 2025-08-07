@@ -7,22 +7,38 @@
 
 
 from classifier import load_playlist, filter_playlist
+from openaiutility import openai_metric_filter
+
 
 def main():
     filepath = "sample-playlist.csv" # Replace if your file has a different name
     playlist = load_playlist(filepath)
 
-    mood = input("Enter the mood you want to filter by (e.g., sad, happy, fast, slow, loud, quiet): ").strip()
+    mood = input("Describe the kind of music you are in the mood for: ").strip()
 
-    filtered_songs = filter_playlist(playlist, mood)
+    try:
+        print("\nInterpreting your request using AI...")
+        mood_filter = openai_metric_filter(mood)
+        print(f"\nFilter criteria generated: {mood_filter}")
+    except Exception as e:
+        print(f"Failed to generate a filter for your request: {e}")
+        return
+    
+    filtered_songs = filter_playlist(playlist, mood_filter)
 
     if not filtered_songs:
-        print(f"No songs found for the mood: '{mood}'")
+        print("\nNo songs found matching your request.")
     else:
-        print(f"Songs matching the mood '{mood}':")
+        print("\nSongs matching your request:")
         for i, song in enumerate(filtered_songs, 1):
-            print(f"{i}. {song.get('track_name', 'Unknown')} - {song.get('artist_name(s)', 'Unknown')}")
+            title = song.get("track_name", "Unknown")
+            artist = song.get("artist_name(s)", "Unknown")
+            print(f"{i}. {title} - {artist}")
 
 if __name__ == "__main__":
     main()
+
+
+
+
 

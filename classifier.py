@@ -41,14 +41,15 @@ def song_matches_filter(song, filters):
                 return False
     return True
 
-def filter_playlist(playlist, mood):
-    filters = song_filters.get(mood.lower())
-    if not filters:
-        print(f"No filters found for mood: '{mood}', returning empty list.")
+def filter_playlist(playlist, filters):
+    if not filters or not isinstance(filters, dict):
+        print(f"No valid filters provided, returning empty list.")
         return []
 
     filtered_songs = [song for song in playlist if song_matches_filter(song, filters)]
+    
     if not filtered_songs:
-        print(f"No songs match the mood: '{mood}'")
-
+        print(f"No songs match the given filters.")
+    
     return filtered_songs
+
